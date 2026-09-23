@@ -129,8 +129,8 @@ int main(){
 
     node *temp=head;
 
-    while(temp!=nullptr){
-        if(temp->data==20) break;
+    while(temp->next!=nullptr){
+        if(temp->next->data==20) break;
         temp=temp->next;
     }
 
