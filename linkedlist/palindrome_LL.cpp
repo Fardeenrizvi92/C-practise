@@ -48,8 +48,8 @@ int main(){
     node* n1=new node(10);
     node* n2=new node(20);
     node* n3=new node(30);
-    node* n4=new node(40);
-    node* n5=new node(50);
+    node* n4=new node(20);
+    node* n5=new node(10);
 
     n1-> next=n2;
     n2-> next=n3;
@@ -68,6 +68,8 @@ int main(){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
+    cout<<endl;
+    
     if(palin(head)) cout<<"palin";
     else
     cout<<"not palin";
