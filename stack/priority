@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5;
+
+struct Node
+{
+    int data;
+    int priority;
+};
+
+class PriorityQueue
+{
+    Node arr[SIZE];
+    int rear;
+
+public:
+
+    PriorityQueue()
+    {
+        rear = -1;
+    }
+
+    void enqueue(int value, int priority)
+    {
+        if(rear == SIZE - 1)
+        {
+            cout << "Overflow\n";
+            return;
+        }
+
+        rear++;
+
+        arr[rear].data = value;
+        arr[rear].priority = priority;
+    }
+
+    void dequeue()
+    {
+        if(rear == -1)
+        {
+            cout << "Underflow\n";
+            return;
+        }
+
+        int highest = 0;
+
+        for(int i = 1; i <= rear; i++)
+        {
+            if(arr[i].priority > arr[highest].priority)
+            {
+                highest = i;
+            }
+        }
+
+        cout << "Deleted element: "
+             << arr[highest].data << endl;
+
+        for(int i = highest; i < rear; i++)
+        {
+            arr[i] = arr[i + 1];
+        }
+
+        rear--;
+    }
+
+    void display()
+    {
+        if(rear == -1)
+        {
+            cout << "Queue is empty\n";
+            return;
+        }
+
+        for(int i = 0; i <= rear; i++)
+        {
+            cout << arr[i].data
+                 << "(" << arr[i].priority << ") ";
+        }
+
+        cout << endl;
+    }
+};
+
+int main()
+{
+    PriorityQueue q;
+
+    q.enqueue(10, 2);
+    q.enqueue(20, 5);
+    q.enqueue(30, 1);
+    q.enqueue(40, 4);
+
+    q.display();
+
+    q.dequeue();
+
+    q.display();
+
+    return 0;
+}
