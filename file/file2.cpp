@@ -94,14 +94,28 @@
 // }
 
 //seekg
+// #include<iostream>
+// #include<fstream>
+// using namespace std;
+// int main(){
+//     ifstream fin("student.txt");
+//     char ch;
+//     fin.seekg(5);
+//     fin.get(ch);
+//     cout<<ch;
+//     fin.close();
+// }
+
+// We want to read the character at position 5.
 #include<iostream>
 #include<fstream>
 using namespace std;
 int main(){
-    ifstream fin("student.txt");
+    ifstream fin("data.txt");
+    fin.seekg(5,ios::beg);
     char ch;
-    fin.seekg(5);
-    fin.get(ch);
-    cout<<ch;
+    if(fin.get(ch)){
+        cout<<ch;
+    }
     fin.close();
 }

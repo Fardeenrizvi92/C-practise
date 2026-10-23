@@ -76,6 +76,7 @@
 //  }
 
 /*arr=[1,4,3]
-check whether we can divide the array in two parts such that both parts have same sum.[using recursion] */
+check whether we can divide the array in two parts such that both parts have same sum.[using recursion] 
+output={[1,3],[4]}*/
 
 
